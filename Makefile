@@ -2,7 +2,7 @@ all: main.pdf main.handout.pdf
 
 main.pdf: main.tex
 
-pacakge.handout.pdf: main.handout.tex
+main.handout.pdf: main.handout.tex
 
 main.handout.tex: main.tex
 	sed '1s/\documentclass{beamer}/\documentclass[handout]{beamer}/' $^ > $@
