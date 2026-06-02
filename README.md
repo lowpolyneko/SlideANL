@@ -13,3 +13,4 @@ slight modification of the `gemini` `beamerposter` theme template.
 - Anish Athalye - [gemini](https://github.com/anishathalye/gemini)
 - Michael Plews and Mark Wolfman - [cabana-tex](https://github.com/CabanaLab/cabana-tex)
 - Zhen Xie - [SlideANL.tgz](https://www.mcs.anl.gov/~zhenxie/archive/)
+- Thomas Applencourt - `beamer2`
