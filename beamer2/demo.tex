@@ -1,0 +1,81 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+\usepackage[american]{babel}
+
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{ulem}
+\usepackage[newfloat]{minted}
+\usepackage{comment}
+\setminted[bash]{xleftmargin=\parindent,fontsize=\scriptsize,baselinestretch=1,breaklines, linenos}
+\setminted[text]{xleftmargin=\parindent,fontsize=\scriptsize,baselinestretch=1,breaklines, linenos}
+\setminted[c++]{xleftmargin=\parindent,fontsize=\scriptsize,baselinestretch=1, breaklines,linenos}
+\setminted[c]{xleftmargin=\parindent,fontsize=\scriptsize,baselinestretch=1, breaklines,linenos}
+\setminted[python]{xleftmargin=\parindent,fontsize=\scriptsize,baselinestretch=1, breaklines,linenos}
+\setminted[text]{xleftmargin=\parindent,fontsize=\scriptsize,baselinestretch=1}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  
+\usepackage{booktabs}
+\usepackage{csquotes}
+\title{Latex Beamer is Awesome!}
+\subtitle{meowmeowmeowmeowmeow}
+
+\date{\today}
+\author{Thomas Applencourt}
+
+\definecolor{mDarkTeal}{HTML}{000000}
+\definecolor{mLightBrown}{HTML}{cb2332}
+\definecolor{ANLBlue}{HTML}{1484c7}
+
+\titlegraphic{\hfill\includegraphics[height=1.0cm,keepaspectratio]{anl_logo_head.png}}
+
+\AtBeginSection[]{
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection,subsectionstyle=hide]
+  \end{frame}
+}
+
+\AtBeginSubsection[]{
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection,currentsubsection,subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+% Argonne Color
+\setbeamercolor{normal text2}{%
+    fg=ANLBlue,
+    bg=black!2
+}
+
+\setbeamercolor{palette primary}{%
+  use=normal text2,
+  fg=normal text2.bg,
+  bg=normal text2.fg
+}
+\setbeamercolor{frametitle}{%
+  use=palette primary,
+  parent=palette primary
+}
+
+\setbeamercolor{titlelike}{use=normal text2, parent=normal text2}
+\setbeamertemplate{frame footer}{ \includegraphics[height=0.5cm]{anl_logo_head.png}}
+
+\begin{document}
+
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents[subsectionstyle=show/show/show]
+\end{frame}
+
+\begin{frame}{Blah Blah}
+	Blah blah blah!
+\end{frame}
+
+
+\end{document}
