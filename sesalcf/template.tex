@@ -1,0 +1,152 @@
+%% Starter deck for the SES-ALCF template, and the reference for every layout
+%% the theme provides.
+%%
+%%   cp -r template my-talk && cd my-talk
+%%   rename template.tex (and its three mentions in the Makefile)
+%%
+%% Families: a plain \begin{frame} is the navy family, \begin{seslightframe} the
+%% white one; \sesalcfdark / \sesalcflight switch a whole document.
+\documentclass[10pt,aspectratio=169]{beamer}
+\usetheme[sectionpages]{sesalcf}
+
+\usepackage{booktabs}
+\usepackage[newfloat]{minted}
+\setminted{fontsize=\scriptsize,baselinestretch=1,breaklines,bgcolor=SESpanelLight}
+
+\title{Talk Title}
+\subtitle{One line of context}
+\author{Ethan Wong}
+\date{\today}
+
+\begin{document}
+
+%% Title Slide
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+%% 1_*Section Break -- inserted by the theme's [sectionpages] option
+\section{Section Break}
+
+%% *Title, Subtitle and Bullets
+\begin{frame}{Title, Subtitle and Bullets}
+  \framesubtitle{The subtitle is the pptx's light-blue sentence-case line}
+  \begin{itemize}
+    \item First-level bullet: white text on the navy master
+    \item A second bullet with \textbf{bold}, \emph{italic} and \texttt{monospace} runs
+    \begin{itemize}
+      \item Second-level bullet, rendered as an en dash
+      \item Another second-level bullet
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%% *Title and Subtitle Only
+\begin{frame}{Title and Subtitle Only}
+  \framesubtitle{No body placeholder: use this for a single statement or a section lead-in}
+\end{frame}
+
+%% *Title and Subtitle: 2 column
+\begin{seslightframe}
+  \frametitle{Title and Subtitle: 2 Column}
+  \framesubtitle{Each column gets its own heading and body}
+  \begin{sescolumns}{2}
+    \sescolumn{Left column}{
+      \begin{itemize}
+        \item Bullets, text or a table on the left
+        \item Columns are equal width
+      \end{itemize}}
+    \sescolumn{Right column}{
+      \begin{itemize}
+        \item The right-hand column
+        \item Same heading and body styles
+      \end{itemize}}
+  \end{sescolumns}
+\end{seslightframe}
+
+%% *Title and Subtitle: 3 column
+\begin{seslightframe}
+  \frametitle{Title and Subtitle: 3 Column}
+  \framesubtitle{Swap the argument to \texttt{sescolumns} for 3, 4 or 5}
+  \begin{sescolumns}{3}
+    \sescolumn{First}{Text or bullets.}
+    \sescolumn{Second}{Text or bullets.}
+    \sescolumn{Third}{Text or bullets.}
+  \end{sescolumns}
+\end{seslightframe}
+
+%% *Title and Subtitle: 4 column
+\begin{seslightframe}
+  \frametitle{Title and Subtitle: 4 Column}
+  \begin{sescolumns}{4}
+    \sescolumn{One}{Narrow columns suit short labels or numbers.}
+    \sescolumn{Two}{Text or bullets.}
+    \sescolumn{Three}{Text or bullets.}
+    \sescolumn{Four}{Text or bullets.}
+  \end{sescolumns}
+\end{seslightframe}
+
+%% *Title and Subtitle: 5 column
+\begin{seslightframe}
+  \frametitle{Title and Subtitle: 5 Column}
+  \begin{sescolumns}{5}
+    \sescolumn{One}{Short.}
+    \sescolumn{Two}{Short.}
+    \sescolumn{Three}{Short.}
+    \sescolumn{Four}{Short.}
+    \sescolumn{Five}{Short.}
+  \end{sescolumns}
+\end{seslightframe}
+
+%% *Title and Subtitle: 4 block big idea
+\begin{seslightframe}
+  \frametitle{Title and Subtitle: 4 Block Big Idea}
+  \framesubtitle{Two panels per row, each with its own heading}
+  \sespanel{Big idea one}{One or two sentences of supporting text.}\hfill
+  \sespanel{Big idea two}{One or two sentences of supporting text.}\par
+  \vspace{0.35cm}
+  \sespanel{Big idea three}{One or two sentences of supporting text.}\hfill
+  \sespanel{Big idea four}{One or two sentences of supporting text.}
+\end{seslightframe}
+
+%% *Title and Subtitle: 3 column photo
+\begin{seslightframe}
+  \frametitle{Title and Subtitle: 3 Column Photo}
+  \framesubtitle{Each column is a picture with a caption underneath}
+  \begin{sesphotos}{3}
+    \sesphoto{sesalcf-assets/bg-title.png}{Caption for the first picture.}
+    \sesphoto{sesalcf-assets/bg-section.png}{Caption for the second.}
+    \sesphoto{sesalcf-assets/bg-title.png}{Caption for the third.}
+  \end{sesphotos}
+\end{seslightframe}
+
+%% Custom Layout: full-bleed media with the title on top
+\begin{frame}[plain]
+  \sesfullbleed[Custom Layout: Full-Bleed Media]{sesalcf-assets/bg-title.png}
+\end{frame}
+
+%% Code, in the theme's light panel
+\begin{frame}[fragile]{Code}
+  \framesubtitle{\texttt{minted} panels take the panel colours from the theme}
+  \begin{minted}{bash}
+# a shell sample
+echo "hello"
+  \end{minted}
+\end{frame}
+
+%% What the theme gives you
+\begin{frame}{Using This Template}
+  \framesubtitle{The same API works in any deck: \texttt{\textbackslash usetheme[sectionpages]\{sesalcf\}}}
+  \begin{itemize}
+    \item \texttt{\textbackslash title}, \texttt{\textbackslash subtitle}, \texttt{\textbackslash author}, \texttt{\textbackslash date} \(\rightarrow\) title page
+    \item \texttt{\textbackslash section\{...\}} \(\rightarrow\) section page, with the \texttt{sectionpages} option
+    \item \texttt{\textbackslash begin\{frame\}\{Title\}\textbackslash framesubtitle\{...\}} \(\rightarrow\) title and subtitle
+    \item \texttt{seslightframe} (title via \texttt{\textbackslash frametitle}) \(\rightarrow\) the white slide family
+    \item \texttt{sescolumns\{n\}}, \texttt{\textbackslash sescolumn\{head\}\{body\}} \(\rightarrow\) 2--5 column layouts
+    \item \texttt{\textbackslash sespanel\{head\}\{body\}} \(\rightarrow\) big-idea panels
+    \item \texttt{sesphotos\{n\}}, \texttt{\textbackslash sesphoto\{file\}\{caption\}} \(\rightarrow\) photo columns
+    \item \texttt{\textbackslash sesfullbleed\{file\}} \(\rightarrow\) full-bleed media
+  \end{itemize}
+\end{frame}
+
+\end{document}
